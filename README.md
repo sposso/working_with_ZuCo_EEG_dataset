@@ -4,7 +4,8 @@ This tutorial explains the preprocessing steps applied to EEG data in the studie
 ZuCo v.1 is a dataset combining EEG and eye-tracking recordings from subjects reading natural sentences. 
 Main features:
 1. Subjects: 12 healthy adult native speakers
-2.  ![Schematic overview of the three tasks in  the study design](schematic_overview.png). [source](https://www.nature.com/articles/sdata2018291)
+2. Schematic overview of the three tasks in  the study design. [source](https://www.nature.com/articles/sdata2018291)
+![Schematic overview of the three tasks in  the study design](schematic_overview.png)
    
    
 
