@@ -12,7 +12,18 @@ The reading materials contain sentences from movie reviews from the Stanford Sen
 - Sentences from the Wikipedia relation extraction dataset for the task-specific relation task: 407
 4. Procedure: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was presented on the screen and the subjects read each sentence at their own speed.
 
-## Eye-tracking preprocessing and Feature extraction:
+ZuCo v.2 is an extended dataset of ZuCo v.1 with more sentences and more subjects. 
+Main features:
+1. Subjects = 18 healthy adult  native speakers.
+2. Tasks = Normal reading (NR), in which participants read the sentences naturally, without any specific tasks other than comprehension; and task-specific reading paradigm, in which they have to determine whether a certain relation type occurred in the sentence.
+3. Descriptive Statistics of the Reading Materials. [Source](https://arxiv.org/abs/1912.00903)
+   ![Descriptive statistics](zucov2.png).
+4. There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in the version 1.
+5. Procedure: Same as 
+
+  
+
+## Eye-tracking preprocessing and Feature extraction for both datasets:
 The EyeLink 1000 tracker processes eye-position data, identifying saccades, fixations, and blinks. 
    -Fixation: Fixation occurs when the eyes stay relatively still on a specific place.-> In the dataset it consists of time periods without saccades. 
    -Saccades: A saccade is a rapid eye movement from one point of fixation to another.
@@ -25,7 +36,7 @@ The EyeLink 1000 tracker processes eye-position data, identifying saccades, fixa
               5. Go-past time (GPT): GPT measures all the time a reader spends on a word and any time spent going back to earlier 
               words before moving forward past the current word.
 
-## EEG acquisition:
+## EEG acquisition in both  datasets:
 
 - System = 128-channel EEG Geodesic Hydrocel system (Electrical Geodesics, Eugene, Oregon).
 - Sampling rate: The data was recorded at a sampling rate of 500 Hz with a bandpass of 0.1 to 100 Hz.
