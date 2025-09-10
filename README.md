@@ -118,6 +118,17 @@ Oscillatory power measures were computed by band-pass filtering the continuous E
 
 A Hilbert Transform is then applied to each of these time series (bands). The Hilbert transformation maintains temporal information for the amplitude of the frequency bands. This temporal resolution is important because the EEG features need to be aligned with time segments defined by the eye-tracking fixations.
 
+## Download ZuCo Datasets
+
+- Download ZuCo v1.0 'Matlab files' for 'task1-SR','task2-NR','task3-TSR' from https://osf.io/q3zws/files/ under 'OSF Storage' root,  
+unzip and move all `.mat` files to `~/datasets/ZuCo/task1-SR/Matlab_files`,`~/datasets/ZuCo/task2-NR/Matlab_files`,`~/datasets/ZuCo/task3-TSR/Matlab_files` respectively.
+- Download ZuCo v2.0 'Matlab files' for 'task1-NR' from https://osf.io/2urht/files/ under 'OSF Storage' root, unzip and move all `.mat` files to `~/datasets/ZuCo/task2-NR-2.0/Matlab_files`.
+
+## Load preprocessed data 
+
+
+
+
 ## Dataset Links
 
 - **ZuCo v.1**: [Nature Scientific Data](https://www.nature.com/articles/sdata2018291)
