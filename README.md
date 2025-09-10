@@ -12,7 +12,8 @@ The reading materials contain sentences from movie reviews from the Stanford Sen
 - Sentences from the Stanford Sentiment Treebank: 123 neutral, 137 negative, and 140 positive sentences. Total sentences: 400
 - Sentences from the Wikipedia relation extraction dataset for the Normal Reading (NR) task: 300
 - Sentences from the Wikipedia relation extraction dataset for the task-specific relation task: 407
-4. Procedure: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was presented on the screen and the subjects read each sentence at their own speed.
+
+4. Procedure: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was given on the screen and the subjects read each sentence at their own speed.
 
 ZuCo v.2 is an extended dataset of ZuCo v.1 with more sentences and more subjects. 
 Main features:
@@ -20,13 +21,12 @@ Main features:
 2. Tasks = Normal reading (NR), in which participants read the sentences naturally, without any specific tasks other than comprehension; and task-specific reading paradigm, in which they have to determine whether a certain relation type occurred in the sentence.
 3. Descriptive Statistics of the Reading Materials. [Source](https://arxiv.org/abs/1912.00903)
 
-4. <p align="center">
+ <p align="center">
   <img src="zucov2.png" alt="Descriptive Statistics" width="600"/>
 </p>
 
-
-5. There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in the version 1.
-6. Procedure: Same as 
+4. There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in the version 1.
+5. Procedure: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was given on the screen and the subjects read each sentence at their own speed.
 
   
 
