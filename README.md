@@ -1,82 +1,148 @@
-# working_with_ZuCo_EEG_dataset
-This tutorial explains the preprocessing steps applied to EEG data in the studies “[ZuCo](https://www.nature.com/articles/sdata2018291): A Simultaneous EEG and Eye-Tracking Resource for Natural Sentence Reading, and "[ZuCo 2.0](https://arxiv.org/abs/1912.00903): A dataset of physiological recordings during natural reading and annotation". 
+# Working with ZuCo EEG Dataset
+
+## Overview
+
+This tutorial explains the preprocessing steps applied to EEG data in the studies "[ZuCo](https://www.nature.com/articles/sdata2018291): A Simultaneous EEG and Eye-Tracking Resource for Natural Sentence Reading" and "[ZuCo 2.0](https://arxiv.org/abs/1912.00903): A dataset of physiological recordings during natural reading and annotation".
+
+## Table of Contents
+
+- [ZuCo v.1 Dataset](#zuco-v1-dataset)
+- [ZuCo v.2 Dataset](#zuco-v2-dataset)
+- [Eye-tracking Preprocessing and Feature Extraction](#eye-tracking-preprocessing-and-feature-extraction)
+- [EEG Acquisition](#eeg-acquisition)
+- [EEG Preprocessing and Feature Extraction](#eeg-preprocessing-and-feature-extraction)
+- [Dataset Links](#dataset-links)
+- [Citation](#citation)
+
+## ZuCo v.1 Dataset
 
 ZuCo v.1 is a dataset combining EEG and eye-tracking recordings from subjects reading natural sentences. Eye-tracking makes it possible to mark the exact boundaries of each word as a subject reads a sentence, which in turn allows precise extraction of the corresponding EEG signals for every word.
-Main features:
-1. Subjects: 12 healthy adult native speakers
-2. Schematic overview of the three tasks in  the study design. [Source](https://www.nature.com/articles/sdata2018291)
-![Schematic overview of the three tasks in  the study design](schematic_overview.png)
-The reading materials contain sentences from movie reviews from the Stanford Sentiment Treebank and biographical sentences about notable people from the Wikipedia relation extraction corpus.
-- Sentences from the Stanford Sentiment Treebank: 123 neutral, 137 negative, and 140 positive sentences. Total sentences: 400
-- Sentences from the Wikipedia relation extraction dataset for the Normal Reading (NR) task: 300
-- Sentences from the Wikipedia relation extraction dataset for the task-specific relation task: 407
-4. Procedure: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was presented on the screen and the subjects read each sentence at their own speed.
 
-ZuCo v.2 is an extended dataset of ZuCo v.1 with more sentences and more subjects. 
-Main features:
-1. Subjects = 18 healthy adult  native speakers.
-2. Tasks = Normal reading (NR), in which participants read the sentences naturally, without any specific tasks other than comprehension; and task-specific reading paradigm, in which they have to determine whether a certain relation type occurred in the sentence.
-3. Descriptive Statistics of the Reading Materials. [Source](https://arxiv.org/abs/1912.00903)
+### Main Features
+
+1. **Subjects**: 12 healthy adult native speakers
+2. **Study Design**: Schematic overview of the three tasks in the study design ([Source](https://www.nature.com/articles/sdata2018291))
+
+![Schematic overview of the three tasks in the study design](schematic_overview.png)
+
+3. **Reading Materials**: The reading materials contain sentences from movie reviews from the Stanford Sentiment Treebank and biographical sentences about notable people from the Wikipedia relation extraction corpus.
+   - Sentences from the Stanford Sentiment Treebank: 123 neutral, 137 negative, and 140 positive sentences. **Total sentences: 400**
+   - Sentences from the Wikipedia relation extraction dataset for the Normal Reading (NR) task: **300**
+   - Sentences from the Wikipedia relation extraction dataset for the task-specific relation task: **407**
+
+4. **Procedure**: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was presented on the screen and the subjects read each sentence at their own speed.
+
+## ZuCo v.2 Dataset
+
+ZuCo v.2 is an extended dataset of ZuCo v.1 with more sentences and more subjects.
+
+### Main Features
+
+1. **Subjects**: 18 healthy adult native speakers
+2. **Tasks**: 
+   - **Normal reading (NR)**: Participants read the sentences naturally, without any specific tasks other than comprehension
+   - **Task-specific reading paradigm**: Participants determine whether a certain relation type occurred in the sentence
+3. **Descriptive Statistics**: Descriptive Statistics of the Reading Materials ([Source](https://arxiv.org/abs/1912.00903))
 
 ![Descriptive statistics](zucov2.png)
-5. There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in the version 1.
-6. Procedure: Same as 
 
-  
+4. **Dataset Overlap**: There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in version 1.
+5. **Procedure**: Same as ZuCo v.1 - naturalistic reading scenario with complete sentences presented on screen.
 
-## Eye-tracking preprocessing and Feature extraction for both datasets:
-The EyeLink 1000 tracker processes eye-position data, identifying saccades, fixations, and blinks. 
-   -Fixation: Fixation occurs when the eyes stay relatively still on a specific place.-> In the dataset it consists of time periods without saccades. 
-   -Saccades: A saccade is a rapid eye movement from one point of fixation to another.
+## Eye-tracking Preprocessing and Feature Extraction
 
-**FEATURES**: 1. Gaze duration (GD): The sum of all fixations on the current word in the first-pass reading before the eyes move out of the word 
-              2. Total reading time (TRT): The sum of all fixation durations on the current word, including regressions. 
-              3. First fixation duration (FFD): The duration of the first fixation on the prevailing word.
-              4. Single fixation duration (SFD): The duration of the first and only fixation on the current word. 
-              SFD only applies to words that are never refixated; if a word has multiple fixations, it does not have an SFD
-              5. Go-past time (GPT): GPT measures all the time a reader spends on a word and any time spent going back to earlier 
-              words before moving forward past the current word.
+The EyeLink 1000 tracker processes eye-position data, identifying saccades, fixations, and blinks.
 
-## EEG acquisition in both  datasets:
+### Definitions
 
-- System = 128-channel EEG Geodesic Hydrocel system (Electrical Geodesics, Eugene, Oregon).
-- Sampling rate: The data was recorded at a sampling rate of 500 Hz with a bandpass of 0.1 to 100 Hz.
-- Recoding Reference: all EEG channels were measured relative to the voltage at the Cz electrode (top center of the scalp).
+- **Fixation**: Fixation occurs when the eyes stay relatively still on a specific place. In the dataset it consists of time periods without saccades.
+- **Saccades**: A saccade is a rapid eye movement from one point of fixation to another.
 
-### EEG preprocessing steps and Feature extraction
+### Eye-tracking Features
 
-- 105 EEG channels were used for scalp recordings, and 9 EOG channels, which measure the electrical activity generated by eye movements, were used for artifact removal.
-- The rest of the channels lying mainly on the neck and face were discarded before the data analysis.
-- Bad electrodes, such as flatline, low-frequency, or noisy channels, were identified and replaced. An electrode was considered bad if its recorded signal correlated less than 0.85 with an estimate derived from the remaining channels. Furthermore, a channel was defined as a bad channel if it had more line noise relative to its signal compared to all other channels (4 standard deviations). Finally, if a channel had a longer flatline than 5 s, it was considered bad.
-- EEG data were high-pass filtered at 0.5 and notch filtered (49-51 Hz) with a Hamming windowed sinc finite impulse response zero-phase filter.
-- Eye artifacts were removed by linearly regressing the EOG channels from the scalp EEG channels.
-- The Multiple Artifact Rejection Algorithm ( MARA) is used for automatic rejection of artifacts.
-- Bad electrodes were interpolated by using spherical spline interpolation.
-- After automatic scanning, noisy channels were selected by visual inspection and interpolated.
+1. **Gaze Duration (GD)**: The sum of all fixations on the current word in the first-pass reading before the eyes move out of the word
+2. **Total Reading Time (TRT)**: The sum of all fixation durations on the current word, including regressions
+3. **First Fixation Duration (FFD)**: The duration of the first fixation on the prevailing word
+4. **Single Fixation Duration (SFD)**: The duration of the first and only fixation on the current word. SFD only applies to words that are never refixated; if a word has multiple fixations, it does not have an SFD
+5. **Go-past Time (GPT)**: GPT measures all the time a reader spends on a word and any time spent going back to earlier words before moving forward past the current word
 
-  **Feature Extraction**:
+## EEG Acquisition
 
-  Oscillatory power in different frequency bands: It refers to the magnitude of rhythmic neural activity within specific frequency ranges of brain signals.
-  Neural oscillations are repetitive patterns of neural activity measurable across frequency bands. Each band is associated with a different cognitive or physiological state.
+### Recording Setup
 
-  In this study, oscillatory power measures were computed by band-pass filtering the continuous EEG signals across the entire task period (full duration of the task) for five distinct frequency bands, resulting in a time series for each band. The frequency bands analyzed are as follows:
+- **System**: 128-channel EEG Geodesic Hydrocel system (Electrical Geodesics, Eugene, Oregon)
+- **Sampling rate**: The data was recorded at a sampling rate of 500 Hz with a bandpass of 0.1 to 100 Hz
+- **Recording Reference**: All EEG channels were measured relative to the voltage at the Cz electrode (top center of the scalp)
 
-  - Theta 1 (4-6) Hz, Theta 2 (6.5-8) Hz ---> It is linked to creativity, intuition, daydreaming, and fantasizing, and is a repository for memories, emotions, sensations.
-  - Alpha 1 (8.5-10) Hz, Alpha 2 (10.5 -13) Hz ---> Linked to attention, mental imagery,  and perception.
-  - Beta 1 (13.5-18) Hz, Beta 2 (18.5 -30) Hz ---> Linked to cognitive-task engagement.
-  - Gamma 1 (30.5-40 Hz), Gamma 2 (40-49.5) Hz --->  Linked to higher cognitive functions, such as attention, memory encoding, sensory perception, and emotion integration.
- 
-Then, a Hilbert Transform is applied to each of these time series (bands). The Hilbert transformation maintains temporal information for the amplitude of the frequency bands. This temporal resolution is important because the EEG features need to be aligned with time segments defined by the eye-tracking fixations.
+## EEG Preprocessing and Feature Extraction
 
-  
+### Channel Configuration
 
-  
-   
-   
+- **105 EEG channels**: Used for scalp recordings
+- **9 EOG channels**: Used to measure electrical activity generated by eye movements for artifact removal
+- **Discarded channels**: The rest of the channels lying mainly on the neck and face were discarded before data analysis
 
-   
-   
+### Preprocessing Steps
 
+1. **Bad electrode identification and replacement**: An electrode was considered bad if:
+   - Its recorded signal correlated less than 0.85 with an estimate derived from the remaining channels
+   - It had more line noise relative to its signal compared to all other channels (4 standard deviations)
+   - It had a longer flatline than 5 seconds
 
+2. **Filtering**: EEG data were high-pass filtered at 0.5 Hz and notch filtered (49-51 Hz) with a Hamming windowed sinc finite impulse response zero-phase filter
 
+3. **Artifact removal**: Eye artifacts were removed by linearly regressing the EOG channels from the scalp EEG channels
 
+4. **Automatic artifact rejection**: The Multiple Artifact Rejection Algorithm (MARA) is used for automatic rejection of artifacts
+
+5. **Electrode interpolation**: Bad electrodes were interpolated using spherical spline interpolation
+
+6. **Final quality check**: After automatic scanning, noisy channels were selected by visual inspection and interpolated
+
+### Feature Extraction: Oscillatory Power
+
+Oscillatory power in different frequency bands refers to the magnitude of rhythmic neural activity within specific frequency ranges of brain signals. Neural oscillations are repetitive patterns of neural activity measurable across frequency bands. Each band is associated with a different cognitive or physiological state.
+
+#### Frequency Bands Analyzed
+
+- **Theta 1 (4-6 Hz)** and **Theta 2 (6.5-8 Hz)**: Linked to creativity, intuition, daydreaming, and fantasizing, and is a repository for memories, emotions, sensations
+- **Alpha 1 (8.5-10 Hz)** and **Alpha 2 (10.5-13 Hz)**: Linked to attention, mental imagery, and perception
+- **Beta 1 (13.5-18 Hz)** and **Beta 2 (18.5-30 Hz)**: Linked to cognitive-task engagement
+- **Gamma 1 (30.5-40 Hz)** and **Gamma 2 (40-49.5 Hz)**: Linked to higher cognitive functions, such as attention, memory encoding, sensory perception, and emotion integration
+
+#### Processing Method
+
+Oscillatory power measures were computed by band-pass filtering the continuous EEG signals across the entire task period (full duration of the task) for five distinct frequency bands, resulting in a time series for each band.
+
+A Hilbert Transform is then applied to each of these time series (bands). The Hilbert transformation maintains temporal information for the amplitude of the frequency bands. This temporal resolution is important because the EEG features need to be aligned with time segments defined by the eye-tracking fixations.
+
+## Dataset Links
+
+- **ZuCo v.1**: [Nature Scientific Data](https://www.nature.com/articles/sdata2018291)
+- **ZuCo v.2**: [arXiv preprint](https://arxiv.org/abs/1912.00903)
+
+## Citation
+
+If you use this dataset in your research, please cite:
+
+### ZuCo v.1
+```
+Hollenstein, N., Rotsztejn, J., Troendle, M., Pedroni, A., Zhang, C., & Langer, N. (2018). 
+ZuCo, a simultaneous EEG and eye-tracking resource for natural sentence reading. 
+Scientific Data, 5, 180291.
+```
+
+### ZuCo v.2
+```
+Hollenstein, N., de la Torre, M., Langer, N., & Zhang, C. (2019). 
+ZuCo 2.0: A dataset of physiological recordings during natural reading and annotation. 
+arXiv preprint arXiv:1912.00903.
+```
+
+## License
+
+Please refer to the original dataset publications for licensing information.
+
+## Contact
+
+For questions about the dataset, please refer to the contact information provided in the original publications.
