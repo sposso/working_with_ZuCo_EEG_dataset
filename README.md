@@ -44,7 +44,9 @@ ZuCo v.2 is an extended dataset of ZuCo v.1 with more sentences and more subject
    - **Task-specific reading paradigm**: Participants determine whether a certain relation type occurred in the sentence
 3. **Descriptive Statistics**: Descriptive Statistics of the Reading Materials ([Source](https://arxiv.org/abs/1912.00903))
 
-![Descriptive statistics](zucov2.png)
+<p align="center">
+  <img src="zucov2.png" alt="Descriptive Statistics" width="600"/>
+</p>
 
 4. **Dataset Overlap**: There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in version 1.
 5. **Procedure**: Same as ZuCo v.1 - naturalistic reading scenario with complete sentences presented on screen.
