@@ -17,7 +17,7 @@ Main features:
 1. Subjects = 18 healthy adult  native speakers.
 2. Tasks = Normal reading (NR), in which participants read the sentences naturally, without any specific tasks other than comprehension; and task-specific reading paradigm, in which they have to determine whether a certain relation type occurred in the sentence.
 3. Descriptive Statistics of the Reading Materials. [Source](https://arxiv.org/abs/1912.00903)
-   ![Descriptive statistics](zucov2.png).
+![Descriptive statistics](zucov2.png).
 4. There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in the version 1.
 5. Procedure: Same as 
 
