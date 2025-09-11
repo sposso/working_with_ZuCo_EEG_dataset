@@ -30,11 +30,11 @@ ZuCo v.1 is a dataset combining EEG and eye-tracking recordings from subjects re
 </p>
 
 3. **Reading Materials**: The reading materials contain sentences from movie reviews from the Stanford Sentiment Treebank and biographical sentences about notable people from the Wikipedia relation extraction corpus.
-   - Sentences from the Stanford Sentiment Treebank: 123 neutral, 137 negative, and 140 positive sentences. **Total sentences: 400**
+   - Sentences from the Stanford Sentiment Treebank (task: sentiment reading (SR)): 123 neutral, 137 negative, and 140 positive sentences. **Total sentences: 400** 
    - Sentences from the Wikipedia relation extraction dataset for the Normal Reading (NR) task: **300**
-   - Sentences from the Wikipedia relation extraction dataset for the task-specific relation task: **407**
+   - Sentences from the Wikipedia relation extraction dataset for the task-specific relation task (TSR): **407**
 
-4. **Procedure**: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was presented on the screen and the subjects read each sentence at their own speed.
+4. **Procedure**: The sentences were presented to the subjects in a naturalistic reading scenario, where the complete sentence was given on the screen and the subjects read each sentence at their own speed.
 
 ## ZuCo v.2 Dataset
 
