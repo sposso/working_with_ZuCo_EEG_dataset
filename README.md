@@ -26,7 +26,7 @@ ZuCo v.1 is a dataset combining EEG and eye-tracking recordings from subjects re
 
 
 <p align="center">
-  <img src="schematic_overview.png" alt="Schematic overview of the three tasks" width="600"/>
+  <img src="Figures/schematic_overview.png" alt="Schematic overview of the three tasks" width="600"/>
 </p>
 
 3. **Reading Materials**: The reading materials contain sentences from movie reviews from the Stanford Sentiment Treebank and biographical sentences about notable people from the Wikipedia relation extraction corpus.
@@ -49,7 +49,7 @@ ZuCo v.2 is an extended dataset of ZuCo v.1 with more sentences and more subject
 3. **Descriptive Statistics**: Descriptive Statistics of the Reading Materials ([Source](https://arxiv.org/abs/1912.00903))
 
 <p align="center">
-  <img src="zucov2.png" alt="Descriptive Statistics" width="600"/>
+  <img src="Figures/zucov2.png" alt="Descriptive Statistics" width="600"/>
 </p>
 
 4. **Dataset Overlap**: There is an overlap between ZuCo v.1 and ZuCo v.2. 100 normal reading and 85 task-specific sentences recorded for this dataset were already recorded in version 1.
