@@ -128,7 +128,14 @@ A Hilbert Transform is then applied to each of these time series (bands). The Hi
 unzip and move all `.mat` files to `~/datasets/ZuCo/task1-SR/Matlab_files`,`~/datasets/ZuCo/task2-NR/Matlab_files`,`~/datasets/ZuCo/task3-TSR/Matlab_files` respectively.
 - Download ZuCo v2.0 'Matlab files' for 'task1-NR' from https://osf.io/2urht/files/ under 'OSF Storage' root, unzip and move all `.mat` files to `~/datasets/ZuCo/task2-NR-2.0/Matlab_files`.
 
-## Load preprocessed data 
+## Load Preprocessed Data
+
+- The Jupyter notebook `construct_dataset_v1.ipynb` provides a detailed explanation of the data being loaded.
+- To automatically load data from ZuCo v1 and ZuCo v2, simply run the scripts `load_data_v1.py` and `load_data_v2.py`.  
+  The main arguments to specify are:
+  - `data_dir`: Path to the ZuCo dataset directory (local location).
+  - `save_data_dir`: Location where the extracted EEG features from both datasets will be saved.
+  
 
 
 
