@@ -23,7 +23,7 @@ ZuCo v.1 is a dataset combining EEG and eye-tracking recordings from subjects re
 1. **Subjects**: 12 healthy adult native speakers
 2. **Study Design**: Schematic overview of the three tasks in the study design ([Source](https://www.nature.com/articles/sdata2018291))
 
-![Schematic overview of the three tasks in the study design](schematic_overview.png)
+
 
 <p align="center">
   <img src="schematic_overview.png" alt="Schematic overview of the three tasks" width="600"/>
