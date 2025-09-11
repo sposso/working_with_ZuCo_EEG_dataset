@@ -135,6 +135,8 @@ unzip and move all `.mat` files to `~/datasets/ZuCo/task1-SR/Matlab_files`,`~/da
   The main arguments to specify are:
   - `data_dir`: Path to the ZuCo dataset directory (local location).
   - `save_data_dir`: Location where the extracted EEG features from both datasets will be saved.
+ 
+The Python scripts were created based on this [GitHub repository](https://github.com/MikeWangWZHL/EEG-To-Text).
   
 
 
